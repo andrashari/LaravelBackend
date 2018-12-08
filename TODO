@@ -1,0 +1,25 @@
+//TODO Add models
+
+https://medium.com/@devlob/laravel-crud-generators-614caddf8bea
+
+php artisan crud:generator Camper
+
+php artisan make:migration create_campers_table --create=campers
+
+public function up()
+    {
+        Schema::create('campers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('thumbnail');
+            $table->string('description');
+            $table->integer('drives');
+            $table->integer('sleeps');
+            $table->timestamps();
+        });
+    }
+
+php artisan migrate
+
+// DB editor
+https://app.sqldbm.com/MySQL/Edit/p45327/#
