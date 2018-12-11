@@ -2,7 +2,13 @@
 
 /*
  *
- * TODO php artisan migrate:fresh --seed +++ composer dump-autoload
+ * TODO Seeding
+ * CLI: composer dump-autoload
+ *      php artisan migrate:fresh --seed
+ * TODO Reverse Seeding
+ * https://github.com/orangehill/iseed
+ * CLI: php artisan iseed campers,images,extras,includeds,specifications --force --exclude=id,created_at,updated_at
+ *
  *
 */
 
@@ -18,9 +24,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call([
-            CamperTableSeeder::class,
-            SpecificationTableSeeder::class,
-        ]);
+        $this->call(ImagesTableSeeder::class);
+        $this->call(ExtrasTableSeeder::class);
+        $this->call(IncludedsTableSeeder::class);
+        $this->call(CampersTableSeeder::class);
+        $this->call(SpecificationsTableSeeder::class);
     }
 }
